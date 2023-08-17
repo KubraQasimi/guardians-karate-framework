@@ -1,3 +1,4 @@
+@Smoke
 Feature: Generate Token for tests
 
   Scenario: generate valid token for tests
