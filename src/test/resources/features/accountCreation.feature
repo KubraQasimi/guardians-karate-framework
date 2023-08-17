@@ -29,8 +29,8 @@ Feature: Account Creation
     Then status 201
     And print response
     And path "/api/accounts/add-account-car"
-    * def licenseGenerator = Java.type('api.utility.data.generateData')
-    * def licensePlate = licenseGenerator.getLicensePlate()
+    * def dataGenerator = Java.type('api.utility.data.generateData')
+    * def licensePlate = dataGenerator.getLicensePlate()
     And param primaryPersonId = createdAccountId
     And header Authorization = "Bearer " + validToken
     And request
@@ -49,7 +49,6 @@ Feature: Account Creation
     Given path "/api/accounts/add-account-phone"
     And param primaryPersonId = createdAccountId
     And header Authorization = "Bearer " + validToken
-    * def dataGenerator = Java.type('api.utility.data.generateData')
     * def phoneNumber = dataGenerator.getPhoneNumber()
     And request
       """
@@ -64,10 +63,10 @@ Feature: Account Creation
     When method post
     Then status 201
     And assert response.phoneNumber == phoneNumber
-    Given path "/api/accounts/delete-account"    
-    And param primaryPersonId = createdAccountId     
-    And header Authorization = "Bearer " + validToken    
-    When method delete    
+    Given path "/api/accounts/delete-account"
+    And param primaryPersonId = createdAccountId
+    And header Authorization = "Bearer " + validToken
+    When method delete
     Then status 200
     And print response
     And assert response == "Account Successfully deleted"
