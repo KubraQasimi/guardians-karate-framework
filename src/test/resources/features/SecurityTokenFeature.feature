@@ -29,7 +29,7 @@ Feature: Security Token Test
       | wrong      | tek_supervisor | User not found       |
       | supervisor | wrong          | Password Not Matched |
 
-  Scenario: 
+  Scenario: verify user with valid username and password
     And request {"username" :"supervisor","password":"tek_supervisor"}
     When method post
     Then status 200
