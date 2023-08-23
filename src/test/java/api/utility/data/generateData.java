@@ -27,9 +27,19 @@ public class generateData {
 		String licensePlate  = prefix + random + suffix;
 		return licensePlate;
 	}
+	
+	public static String getUserName() {
+		String prefix = "auto_user";
+		int random = (int)(Math.random()*10000);
+//		return prefix.concat(random + "");
+//		return prefix.concat(Integer.toString(random));
+		return prefix.concat(String.valueOf(random));
+	}
+	
 //	public static void main(String[] args) {
 //		String number =getPhoneNumber();
 //		System.out.println(number);
+//		System.out.println(getUserName());
 //	}
 	
 }
